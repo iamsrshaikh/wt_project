@@ -63,8 +63,8 @@ app.get("/donation",(req,res) =>{
 // Donation Page
 
 let instance = new Razorpay({
-    key_id: 'rzp_test_BAMVOtMO48tP5w', // your `KEY_ID`
-    key_secret: 'q3ygsL3SscpF8AxcvfUaXV1B' // your `KEY_SECRET`
+    key_id: 'rzp_live_jDMPzCUX4wuyAw', // your `KEY_ID`
+    key_secret: 'CSNThM23caaguzbZgPPYG4xj' // your `KEY_SECRET`
   })
   
   app.use(bodyParser.json());
@@ -85,7 +85,7 @@ let instance = new Razorpay({
   app.post("/api/payment/verify",(req,res)=>{
   body=req.body.razorpay_order_id + "|" + req.body.razorpay_payment_id;
   var crypto = require("crypto");
-  var expectedSignature = crypto.createHmac('grc_sr', 'q3ygsL3SscpF8AxcvfUaXV1B')
+  var expectedSignature = crypto.createHmac('grc_sr', 'CSNThM23caaguzbZgPPYG4xj')
                                   .update(body.toString())
                                   .digest('hex');
                                   console.log("sig"+req.body.razorpay_signature);
